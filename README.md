@@ -54,6 +54,8 @@ importing the data your the reports is beyond this guide
 
 4 see the source control automatically syncing your chances to fabric
 
+this also works the other way around form fabric to the repo to your local by using the same Git technology
+
 
 Operationalizing this
 
