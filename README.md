@@ -1,5 +1,5 @@
 # Source Control with Power BI & Microsoft Fabric
-## Enterprise Guide – PBIP, Git Integration & Deployment Flow
+## Enterprise Guide – PBIP / Git Integration & Deployment Flow
 
 This repository demonstrates a production-ready source control architecture for Power BI using Microsoft Fabric and Git (GitHub or Azure DevOps), based on Power BI Projects (PBIP).
 
@@ -73,6 +73,7 @@ This local folder becomes the root of your Power BI project.
 Create your report in Power BI Desktop using either your own data source or the free sample dataset used in this example.
 
 At this stage, development is local only.
+[!alt-text] (https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/PBI%20reports.png)
 
 ---
 
