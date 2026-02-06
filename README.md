@@ -1,69 +1,177 @@
-# Source-Control-with-Power-BI-and-Fabric
+# Source Control with Power BI & Microsoft Fabric
+## Enterprise Guide – PBIP, Git Integration & Deployment Flow
 
-prerequisites
-git
-azure devops or github
-power bi desktop
-fabric 
+This repository demonstrates a production-ready source control architecture for Power BI using Microsoft Fabric and Git (GitHub or Azure DevOps), based on Power BI Projects (PBIP).
 
-1
-create a new repo for your project in Github or azure repos
+The focus is operational: how reports and semantic models move from local development to Git and then to Fabric workspaces, and how teams collaborate safely using branches, pull requests, and environment isolation.
 
-step 2 
+---
 
-create your pbi report in pbi desktop using your own data or the free dataset in this example
+## 1. Why Source Control Matters in Power BI & Fabric
 
-3 clone your repo locally
+Before PBIP and Fabric Git integration:
 
-step 4 
+- PBIX files were opaque binaries
+- Collaboration was fragile
+- Rollbacks were manual and risky
+- CI/CD was nearly impossible
 
-save the file as .pbip o power bi project in your local 
+With PBIP + Git + Fabric:
 
-Power BI Desktop introduces a new way to author, collaborate, and save your projects. When you save your work as a Power BI Project (PBIP), report and semantic model item definitions are saved as individual plain text files in a simple, intuitive folder structure.
+- Reports and models become structured text assets
+- Every change is diffable and reviewable
+- Fabric workspaces become deployable environments
+- Governance and promotion flows become enforceable
 
-Saving your work as a project has the following benefits:
+Without PBIP, Power BI is a desktop tool.
+With PBIP + Git + Fabric, Power BI becomes an enterprise platform.
 
-Text editor support - PBIP files are formatted text files containing semantic model and report metadata. These files are publicly documented and human readable. While project files support simple text editing tools like Notepad, it's better to use a code editor like Visual Studio Code (VS Code), which provides a rich editing experience including intellisense, validation, and Git integration.
+---
 
-Folder structure transparency - Separate folders for the semantic model and report, enabling powerful yet simple tasks like copying semantic model tables between projects or reusing report pages. A great choice for creating and reusing development templates.
+## 2. High-Level Architecture
 
-Source control ready - Open text files, designed for seamless integration with Git, enabling version history and team collaboration. To learn more, see Version control in Git.
+At a high level:
 
-Continuous Integration and Continuous Delivery (CI/CD) support - Apply CI/CD practices on top of your existing source control systems using PBIP files, incorporating quality gates and automating deployment to production environments. To learn more about CI/CD in Fabric, see Fabric CI/CD workflows.
+- GitHub or Azure DevOps is the system of record
+- Power BI Desktop (PBIP) is the local authoring environment
+- Microsoft Fabric is the execution and consumption platform
+- Pull Requests act as the governance gate
 
-Programmatic generation and editing item definitions - You can programmatically generate and modify item definition text files, enabling batch operations such as updating all report pages visuals or adding a set of measures to each table. For semantic models, you can use the Tabular Object Model (TOM) client library to deserialize the semantic model metadata, make programmatic modifications, and serialize it back to the files.
+All synchronization relies on standard Git operations.
 
-5 push your models and reports to your remote repo 
+---
 
-6 on fabric create for this example a Dev and a Prod workspace 
-7 in the workspace setting go to git integration and select either Azure DevOps or Github and make your connection
+## 3. Prerequisites
 
-use a dev branch for the dev workspace and the same for prod 
+- Git
+- GitHub or Azure DevOps
+- Power BI Desktop (latest version)
+- Microsoft Fabric tenant enabled
 
-8 once done i will sync with your remote repo and the models and report will be in your fabric workspace 
+---
 
-importing the data your the reports is beyond this guide 
+## 4. Repository Setup
 
-9 test the integration
+Create a new repository in GitHub or Azure DevOps.
 
-1 make new reports locally 
+This repository will store:
 
-2 save it as your next version and pbip
+- Power BI report definitions
+- Semantic model metadata
+- Version history and approvals
 
-3 use git to push the chances to the remote 
+Clone the repository locally:
 
-4 see the source control automatically syncing your chances to fabric
+    git clone <repo-url>
 
-this also works the other way around form fabric to the repo to your local by using the same Git technology
+This local folder becomes the root of your Power BI project.
 
+---
 
-Operationalizing this
+## 5. Create the Power BI Report
 
-example
+Create your report in Power BI Desktop using either your own data source or the free sample dataset used in this example.
 
-image your team has a fabric capcity for development and one for production 
+At this stage, development is local only.
 
-you can have all your PBI developers creating their models ans reports and then creating pull requests to your development branch which will be approve only by a tester who ensure the report is good enough to eventually pass to the prod capacity using this integrations 
+---
 
+## 6. Save as Power BI Project (PBIP)
 
+Save the report inside the cloned repository as a Power BI Project (.pbip).
 
+When saved as PBIP:
+
+- Reports and semantic models are stored as plain text files
+- A clear, predictable folder structure is created
+- Artifacts are immediately Git-friendly
+
+---
+
+## 7. Push to the Remote Repository
+
+    git add .
+    git commit -m "Initial Power BI project"
+    git push origin dev
+
+From this point forward, Git becomes the source of truth.
+
+---
+
+## 8. Fabric Workspace Strategy
+
+Create two Fabric workspaces:
+
+- Dev workspace
+- Prod workspace
+
+Each workspace represents a deployment boundary.
+
+---
+
+## 9. Configure Git Integration in Fabric
+
+For each workspace:
+
+1. Go to Workspace Settings
+2. Open Git integration
+3. Connect to GitHub or Azure DevOps
+
+Branch mapping:
+
+- Dev workspace uses the dev branch
+- Prod workspace uses the main (or prod) branch
+
+---
+
+## 10. Sync Repository to Fabric
+
+Once connected, sync the workspace.
+
+Fabric will automatically materialize reports and semantic models directly from the repository.
+
+Data refresh and data source configuration are intentionally out of scope.
+
+---
+
+## 11. End-to-End Flow Validation
+
+Local to Git to Fabric:
+
+1. Modify or create a report locally
+2. Save changes as PBIP
+3. Commit and push to the dev branch
+4. Fabric detects pending changes
+5. Sync applies them to the Dev workspace
+
+---
+
+## 12. Pull Request Flow
+
+1. Open a Pull Request from dev to main
+2. Reviewer validates model and visual changes
+3. Approve and merge
+4. Sync the Prod workspace
+
+This enforces review gates, ownership, and safe deployments.
+
+---
+
+## 13. Bidirectional Sync
+
+The integration works both ways:
+
+- Local to Git to Fabric
+- Fabric to Git to Local
+
+Everything is backed by standard Git mechanics.
+
+---
+
+## 14. References
+
+Power BI Projects Overview
+https://learn.microsoft.com/power-bi/developer/projects/projects-overview
+
+Microsoft Fabric – Git Integration
+https://learn.microsoft.com/fabric/cicd/git-integration/intro-to-git-integration
