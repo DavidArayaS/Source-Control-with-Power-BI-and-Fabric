@@ -228,4 +228,7 @@ https://learn.microsoft.com/power-bi/developer/projects/projects-overview
 Microsoft Fabric – Git Integration
 https://learn.microsoft.com/fabric/cicd/git-integration/intro-to-git-integration
 
+Power BI on-premises data gateway
+https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem
+
 
