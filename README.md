@@ -73,6 +73,9 @@ This local folder becomes the root of your Power BI project.
 Create your report in Power BI Desktop using either your own data source or the free sample dataset used in this example.
 
 At this stage, development is local only.
+
+---
+
 ![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/PBI%20reports.png)
 
 ---
@@ -86,6 +89,14 @@ When saved as PBIP:
 - Reports and semantic models are stored as plain text files
 - A clear, predictable folder structure is created
 - Artifacts are immediately Git-friendly
+
+---
+
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/save%20as.png)
+
+---
+
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/save%20as%20V2.png)
 
 ---
 
@@ -124,7 +135,14 @@ Branch mapping:
 - Prod workspace uses the main (or prod) branch
 
 ---
-
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/Create%20Fabric%20Workspaces.png)
+---
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/workspace%20settings.png)
+---
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/Git%20integration.png)
+---
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/GitHub%20integration%20set%20up.png)
+---
 ## 10. Sync Repository to Fabric
 
 Once connected, sync the workspace.
