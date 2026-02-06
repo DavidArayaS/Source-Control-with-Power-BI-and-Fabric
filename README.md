@@ -153,6 +153,16 @@ Data refresh and data source configuration are intentionally out of scope.
 
 ---
 
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/synced%20reports%20from%20remote%20repo.png)
+
+---
+
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/all%20reports.png)
+
+
+
+---
+
 ## 11. End-to-End Flow Validation
 
 Local to Git to Fabric:
@@ -163,16 +173,28 @@ Local to Git to Fabric:
 4. Fabric detects pending changes
 5. Sync applies them to the Dev workspace
 
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/pending%20changes%20in%20fabric%20after%20PR%20approval.png)
+---
+
+
+
 ---
 
 ## 12. Pull Request Flow
 
-1. Open a Pull Request from dev to main
+1. Open a Pull Request from a dev branch to dev and finally to prod
 2. Reviewer validates model and visual changes
 3. Approve and merge
 4. Sync the Prod workspace
 
 This enforces review gates, ownership, and safe deployments.
+
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/vendor%20push.png)
+
+---
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/PR%20example.png)
+---
+
 
 ---
 
@@ -184,6 +206,11 @@ The integration works both ways:
 - Fabric to Git to Local
 
 Everything is backed by standard Git mechanics.
+
+
+---
+
+![alt-text](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/blob/19669dbb858f1e11646f0f1dc60cc492403868dd/Pictures/delete%20commit%20options.png)
 
 ---
 
