@@ -46,6 +46,7 @@ All synchronization relies on standard Git operations.
 - Git
 - GitHub or Azure DevOps
 - Power BI Desktop (latest version)
+- Dataset ![Free Test Dataset](https://github.com/DavidArayaS/Source-Control-with-Power-BI-and-Fabric/tree/fdf424e4c12683e2da8ffbaeef7293fcb1ab5334/data)
 - Microsoft Fabric tenant enabled
 
 ---
@@ -214,10 +215,17 @@ Everything is backed by standard Git mechanics.
 
 ---
 
-## 14. References
+## 14. Note
+
+To interact with the reports exactly in the same way they are created in Power BI Desktop the Dataset has to be imported, that is beyond this guide.
+
+---
+## 15. References
 
 Power BI Projects Overview
 https://learn.microsoft.com/power-bi/developer/projects/projects-overview
 
 Microsoft Fabric – Git Integration
 https://learn.microsoft.com/fabric/cicd/git-integration/intro-to-git-integration
+
+
